@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+
+<style>
+	ul li a {
+		text-decoration: none;
+		border-bottom: none;
+		box-shadow: none;
+	}
+</style>
+
+
+<div>
+
+<h1>Articles</h1>
+<ul>
+	{% for article in articles %}
+		<li>
+			<a href="{{ path('article_show', {id: article.id}) }}">{{ article.titre }}</a>
+			<p>{{ article.contenu|slice(0, 100) }}...</p>
+		</li>
+	{% endfor %}
+</ul>
+
+
+
+</div>
+
+{% endblock %}
